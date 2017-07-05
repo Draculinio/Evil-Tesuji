@@ -1,10 +1,10 @@
-__author__ = 'Pablo'
+__author__ = 'Pablo Soifer'
 
 
 class Board:
-    boardList = []
-    boardSize = 0
+    """Class for Board representation"""
     def __init__(self, size):
+        self.boardList = []
         self.boardSize = size
         self.totalSize = (size + 2) * (size + 1) + 1
         for i in range(0, self.totalSize):
@@ -19,13 +19,6 @@ class Board:
 
     def getBoard(self):
         return self.boardList
-
-
-    def getBoardSize(self):
-        return self.boardSize
-
-    def getBoardTotalPositions(self):
-        return self.totalSize
 
     def putStone(self,pos,color):
         self.boardList[pos]=color
