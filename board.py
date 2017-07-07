@@ -17,11 +17,6 @@ class Board:
         for i in range((self.boardSize+1)*(self.boardSize+1),(self.boardSize+2)*(self.boardSize+1)+1):
             self.boardList[i]=3
 
-    def getBoard(self):
-        return self.boardList
-
-    def putStone(self,pos,color):
-        self.boardList[pos]=color
 
     def posToCoordinate(self,position):
         column=['A','B','C','D','E','F','G','H','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']

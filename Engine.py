@@ -16,7 +16,7 @@ class Engine:
 
     def getValues(self,aBoard):
         boardListValues = []
-        for i in range(0,aBoard.getBoardTotalPositions()):
+        for i in range(0,aBoard.totalSize):
             if aBoard.boardList[i]!=0: #Edges, occupied spaces, ko
                 boardListValues.append(-1000)
             else:

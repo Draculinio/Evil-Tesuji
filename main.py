@@ -4,11 +4,12 @@ from printer import Printer
 from board import Board
 from Engine import Engine
 
-evilTesuji = Engine(2)
+evilTesuji = Engine(1)
 mainBoard = Board(9)
 mainPrinter = Printer()
 mainPrinter.printBoard(mainBoard)
-#move = evilTesuji.putStone(mainBoard)
+move = evilTesuji.putStone(mainBoard)
+mainBoard.boardList[move]=evilTesuji.color
 #mainBoard.putStone(move,evilTesuji.color)
 #print(mainBoard.posToCoordinate(move))
-#mainPrinter.printBoard(mainBoard)
+mainPrinter.printBoard(mainBoard)
