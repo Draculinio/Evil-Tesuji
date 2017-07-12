@@ -13,3 +13,5 @@ mainBoard.boardList[move]=evilTesuji.color
 #mainBoard.putStone(move,evilTesuji.color)
 #print(mainBoard.posToCoordinate(move))
 mainPrinter.printBoard(mainBoard)
+mainPrinter.printSomething(mainBoard.posToCoordinate(move))
+mainPrinter.printSomething(mainBoard.coordinateToPosition(mainBoard.posToCoordinate(move)))

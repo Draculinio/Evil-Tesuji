@@ -30,3 +30,7 @@ class Board:
                     break
 
         return finalCoord
+
+    def coordinateToPosition(self,coordinate):
+        column = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U','V', 'W', 'X', 'Y', 'Z']
+        return (column.index(coordinate[0])+self.boardSize+2+(int(coordinate[1])-1)*(self.boardSize+1))-1
