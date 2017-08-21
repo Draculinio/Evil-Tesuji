@@ -31,6 +31,10 @@ class Board:
 
         return finalCoord
 
-    def coordinateToPosition(self,coordinate):
+    def coordinate_to_Position(self,coordinate):
         column = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U','V', 'W', 'X', 'Y', 'Z']
+        if coordinate == "PASS":
+            return -5000
+        if coordinate == "RESIGN":
+            return -10000
         return (column.index(coordinate[0])+self.boardSize+2+(int(coordinate[1])-1)*(self.boardSize+1))-1
