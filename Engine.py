@@ -4,21 +4,19 @@ import board
 import random
 
 class Engine:
-    def __init__(self,color):
-        self.color=color
-        self.gtpEngine=gtp()
-
-    #This is to receive values, connects with gtp engine
-    def receive_value(self,my_board):
-        move = input()
-        self.gtpEngine.resolve_input(move,my_board)
-
+    def __init__(self):
+        self.color = 0
+        
     
     #Here is the process to put a stone.
-    def putStone(self,my_board):
+    def put_stone(self,color,my_board):
         #Here goes all the magic.
+        if color=="WHITE":
+            self.color=2
+        else:
+            self.color=1
         values_list = self.getValues(my_board)
-        return self.returnChosenOne((values_list))
+        return self.color, self.returnChosenOne((values_list))
 
     #Gets the values of the board
     def getValues(self,my_board):

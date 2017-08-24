@@ -7,19 +7,26 @@ from gtp import Gtp
 
 #Initialization
 
-evilTesuji = Engine(1)
-mainBoard = Board(9)
-mainPrinter = Printer()
-
+#evilTesuji = Engine(1)
+main_board = Board(9)
+main_printer = Printer()
+gtp_controler = Gtp()
+evil_tesuji = Engine()
 #Main loop
-
 turn = 1
 while turn!=3:
-    #move = mainBoard.coordinateToPosition(gtpControler.receive_input())
-mainBoard.boardList[move]=evilTesuji.color
-#mainBoard.putStone(move,evilTesuji.color)
-#print(mainBoard.posToCoordinate(move))
-mainPrinter.printBoard(mainBoard)
-mainPrinter.printSomething(mainBoard.posToCoordinate(move))
-mainPrinter.printSomething(mainBoard.coordinate_to_position(mainBoard.posToCoordinate(move)))
-
+    gtp_command = input()
+    color,move = gtp_controler.resolve_input(gtp_command,main_board,evil_tesuji)
+    if color== 1 or color == 2: #Movement command
+        if move==-5000:
+            print("PASS")
+        else:
+            if move==-10000:
+                print("RESIGN")
+                turn=3
+            else:
+                main_board.put_stone(color,move)
+                main_printer.printBoard(main_board)
+    else: #Other commands
+        if color == 50:
+            print(move)

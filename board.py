@@ -17,8 +17,8 @@ class Board:
         for i in range((self.boardSize+1)*(self.boardSize+1),(self.boardSize+2)*(self.boardSize+1)+1):
             self.boardList[i]=3
 
-
-    def posToCoordinate(self,position):
+    #Gets a position and returns a Coordinate        
+    def position_to_coordinate(self,position):
         column=['A','B','C','D','E','F','G','H','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
         finalCoord=""
         fPositionFound = False
@@ -31,10 +31,14 @@ class Board:
 
         return finalCoord
 
-    def coordinate_to_Position(self,coordinate):
+    #Gets a coordinate and returns a Position
+    def coordinate_to_position(self,coordinate):
         column = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U','V', 'W', 'X', 'Y', 'Z']
         if coordinate == "PASS":
             return -5000
         if coordinate == "RESIGN":
             return -10000
-        return (column.index(coordinate[0])+self.boardSize+2+(int(coordinate[1])-1)*(self.boardSize+1))-1
+        return (column.index(coordinate[0])+self.boardSize+2+(int(coordinate[1])-1)*(self.boardSize+1))
+
+    def put_stone(self,color,position):
+        self.boardList[position]=color

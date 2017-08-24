@@ -33,5 +33,5 @@ class Printer:
                 line=""
                 cut = 0
 
-    def printSomething(self,text):
+    def print_something(self,text):
         print(text)
